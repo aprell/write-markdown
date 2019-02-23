@@ -1,0 +1,7 @@
+function! InsertDate()
+    let pos = getpos(".")
+    :%s/^date:.*/\=system('date "+date: %Y-%m-%d"')[:-2]/
+    call setpos(".", pos)
+endfunction
+
+autocmd BufWritePre *.md :call InsertDate()
