@@ -1,7 +1,7 @@
 # Use default template with `make TEMPLATE=default`
 TEMPLATE ?= eisvogel
 
-SRCS := $(wildcard *.md)
+SRCS := $(filter-out README.md,$(wildcard *.md))
 
 PDFS := $(SRCS:.md=.pdf)
 

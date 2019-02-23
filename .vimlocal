@@ -1,6 +1,6 @@
 function! InsertDate()
     let pos = getpos(".")
-    :%s/^date:.*/\=system('date "+date: %Y-%m-%d"')[:-2]/
+    :%s/^date:.*/\=system('date "+date: %Y-%m-%d"')[:-2]/e
     call setpos(".", pos)
 endfunction
 
