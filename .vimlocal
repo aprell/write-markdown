@@ -1,3 +1,10 @@
+function! MakePDF(...)
+    let template = a:0 > 0 ? a:1 : "default"
+    execute "!pandoc -f markdown -t latex --template " . template . " % -o %:r.pdf"
+endfunction
+
+command! -nargs=* PDF call MakePDF(<f-args>)
+
 function! InsertDate()
     let pos = getpos(".")
     :%s/^date:.*/\=system('date "+date: %Y-%m-%d"')[:-2]/e
