@@ -7,7 +7,7 @@ command! -nargs=* PDF call MakePDF(<f-args>)
 
 function! InsertDate()
     let pos = getpos(".")
-    :%s/^date:.*/\=system('date "+date: %Y-%m-%d"')[:-2]/e
+    :%s/^date:.*/\=strftime("date: %Y-%m-%d")/e
     call setpos(".", pos)
 endfunction
 
