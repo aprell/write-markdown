@@ -8,7 +8,7 @@ PDFS := $(SRCS:.md=.pdf)
 all: $(PDFS)
 
 %.pdf: %.md Makefile
-	pandoc -f markdown -t latex --template $(TEMPLATE) $< -o $@
+	pandoc -f markdown -t latex --template $(TEMPLATE) --listings $< -o $@
 
 clean:
 	rm -f $(PDFS)

@@ -1,6 +1,6 @@
 function! MakePDF(...)
     let template = a:0 > 0 ? a:1 : "default"
-    execute "!pandoc -f markdown -t latex --template " . template . " % -o %:r.pdf"
+    execute "!pandoc -f markdown -t latex --template " . template . " --listings % -o %:r.pdf"
 endfunction
 
 command! -nargs=* PDF call MakePDF(<f-args>)
